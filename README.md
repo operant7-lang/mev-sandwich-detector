@@ -2,7 +2,7 @@
 
 Scans Ethereum mainnet blocks for sandwich attacks on Uniswap V2 pools and shows the results on a live dashboard.
 
-Live dashboard: 
+Live dashboard: https://gdp-dashboard-80unodhf577.streamlit.app/
 
 ## How it works
 
