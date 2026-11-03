@@ -1,0 +1,19 @@
+name: scan
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Detect
+        run: python3 mev_detector.py 150
+        env:
+          ALCHEMY_KEY: ${{ secrets.ALCHEMY_KEY }}
+      - name: Save
+        run: python3 save_to_supabase.py
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
